@@ -21,7 +21,23 @@
 <% if flash[:notice] %>
 <div id="notice" >
   <%= flash[:notice] %>
-<form action="/sign_up" method="get">
+<form action="/sign_up" method="post">
+  <label for="user_name">
+    User Name:
+    <input type="text" name="user_name" value="<%= @user.user_name%>">
+  </label>
+  <label for="email">
+    Email:
+    <input type="text" name="email" value="<%= @user.email%>">
+  </label>
+  <label for="password">
+    Password:
+    <input type="password" name="password">
+  </label>
+  <label for="password_confirmation">
+    Confirm Password:
+    <input type="password" name="password_confirmation">
+  </label>
   <input type="submit" value="Try Again">
 </form>
 </div>

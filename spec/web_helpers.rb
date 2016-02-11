@@ -23,3 +23,11 @@ def sign_up_bad(password_confirmation)
   fill_in 'password_confirmation', with: password_confirmation
   click_button('Sign Up')
 end
+
+def sign_up_two
+    within 'div#notice' do
+    fill_in 'password', with: 'password123'
+    fill_in 'password_confirmation', with: 'password123'
+    click_button('Try Again')
+  end
+end

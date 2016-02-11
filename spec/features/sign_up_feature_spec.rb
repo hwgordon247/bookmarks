@@ -27,6 +27,12 @@ feature 'Sign Up' do
     expect(page).to have_content('Ooops, your passwords didn\'t match')
   end
 
+  scenario 'Secondary form displays when attempting another sign up' do
+    sign_up_bad(password_confirmation: 'wrong')
+    sign_up_two
+    expect(page).to have_content("WELCOME TO BOOKMARKER MANAGERESS KokoKitscha! Ready?")
+  end
+
   scenario 'Checking a new user\'s email' do
     sign_up_good
     expect(User.first.email).to eq('viola.crellin@gmail.com')

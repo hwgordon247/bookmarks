@@ -19,18 +19,19 @@ class BookmarkManager < Sinatra::Base
 
   post '/links' do
     link = Link.new(url: params[:url], title: params[:title])
-    tag = Tag.create(name: params[:tags])
-    link.tags << tag
+    params[:tags].split(", ").each {|tag| link.tags << Tag.create(name: tag)}
     link.save
     redirect '/links'
   end
 
+
   post '/links/:name' do
     tag = Tag.all(name: params[:search_tag])
     @links = tag ? tag.links : []
-    # redirect '/links'
     erb :'links/index'
    end
+
+
 
   run! if app_file == $0
 end

@@ -1,14 +1,20 @@
 body {
-  font: 1em sans-serif;
-  padding: 0;
-  margin : 0;
+  height: 100%;
+  font-family:helvetica, sans-serif;
+  background-color: rgb(255, 77, 77);
+  font-size: 48px;
+  font-weight: normal;
+}
+
+.wrapper {
+  margin: 100px auto;
 }
 
 div.notice >form {
   max-width: 200px;
-  margin: 0;
-  padding: 0 5px;
+  margin: 20px auto;
 }
+
 
 input[type=text],
 input[type=email],

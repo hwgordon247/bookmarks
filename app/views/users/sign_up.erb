@@ -17,3 +17,12 @@
   </label>
   <input type="submit" value="Sign Up">
 </form>
+
+<% if flash[:notice] %>
+<div id="notice" >
+  <%= flash[:notice] %>
+<form action="/" method="get">
+  <input type="submit" value="Try Again">
+</form>
+</div>
+<% end %>

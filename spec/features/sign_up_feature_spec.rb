@@ -16,6 +16,17 @@ feature 'Sign Up' do
     expect(page).to have_content('WELCOME TO BOOKMARKER MANAGERESS KokoKitscha!')
   end
 
+  scenario 'Unmatching passwords do not move to welcome page' do
+    sign_up_bad(password_confirmation: 'wrong')
+    expect(current_path).to eq('/sign_up')
+    expect(current_path).not_to eq('/welcome')
+  end
+
+  scenario 'Unmatching passwords display a flash message' do
+    sign_up_bad(password_confirmation: 'wrong')
+    expect(page).to have_content('Ooops, your passwords didn\'t match')
+  end
+
   scenario 'Checking a new user\'s email' do
     sign_up_good
     expect(User.first.email).to eq('viola.crellin@gmail.com')

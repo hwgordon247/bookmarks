@@ -5,3 +5,11 @@ def create_links(url, title, tags)
   fill_in 'tags', with: tags
   click_button('Add')
 end
+
+def sign_up(user, email, password)
+  visit '/'
+  fill_in 'user_name', with: user
+  fill_in 'email', with: email
+  fill_in 'password', with: password
+  click_button('Sign Up')
+end

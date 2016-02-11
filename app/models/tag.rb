@@ -1,5 +1,4 @@
-require 'data_mapper'
-require 'dm-postgres-adapter'
+
 
 class Tag
 
@@ -7,7 +6,6 @@ class Tag
 
   property :id, Serial
   property :name, String
-  # property :link, String
 
 
 

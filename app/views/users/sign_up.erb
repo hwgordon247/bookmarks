@@ -21,11 +21,7 @@
 <% if flash[:notice] %>
 <div id="notice" >
   <%= flash[:notice] %>
-<form action="/" method="get">
-  <label for="email_repeat">
-    Email:
-    <input type="text" name="email_repeat" value="<%= @user.email %>}">
-  </label>
+<form action="/sign_up" method="get">
   <input type="submit" value="Try Again">
 </form>
 </div>

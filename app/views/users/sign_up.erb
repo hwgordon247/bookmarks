@@ -1,3 +1,4 @@
+<% if flash[:notice].nil? %>
 <form action="/sign_up" method="post" >
   <label for="user_name">
     User Name:
@@ -17,6 +18,7 @@
   </label>
   <input type="submit" value="Sign Up">
 </form>
+<% end %>
 
 <% if flash[:notice] %>
 <div id="notice" >

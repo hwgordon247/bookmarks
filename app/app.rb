@@ -25,8 +25,7 @@ class BookmarkManager < Sinatra::Base
 
 
   get '/tags/:name' do
-    tag_name = params[:name]
-    tag = Tag.all(name: tag_name)
+    tag = Tag.all(name: params[:name])
     @links = tag ? tag.links : []
     # require 'pry'; binding.pry
     erb :'links/search_tag'

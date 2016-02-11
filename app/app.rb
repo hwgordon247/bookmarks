@@ -6,7 +6,6 @@ require_relative 'models/tag'
 require_relative 'data_mapper_setup'
 
 class BookmarkManager < Sinatra::Base
-  set :sessions, true
 
   get '/links' do
     @links = Link.all
@@ -25,11 +24,14 @@ class BookmarkManager < Sinatra::Base
   end
 
 
-  post '/links/:name' do
-    tag = Tag.all(name: params[:search_tag])
+  get '/tags/:name' do
+    tag_name = params[:name]
+    tag = Tag.all(name: tag_name)
     @links = tag ? tag.links : []
-    erb :'links/index'
+    # require 'pry'; binding.pry
+    erb :'links/search_tag'
    end
+
 
 
 

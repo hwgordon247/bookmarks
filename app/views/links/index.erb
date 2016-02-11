@@ -1,7 +1,9 @@
 <h1>Links</h1>
-<form action="/links/:name" method="post">
-  <input type="text" name="search_tag">
-  <input type="submit" value="Search By Tag"
+<form action="/tags/:name">
+  <label for="name">
+  <input type="text" name="name"/>
+  </label>
+  <input type="submit" value="Search By Tag"/>
 </form>
 <ul id="links">
   <%@links.each do |link| %>

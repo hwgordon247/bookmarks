@@ -1,6 +1,7 @@
 require 'sinatra/base'
 require_relative 'models/link.rb'
 require_relative 'models/tag.rb'
+require_relative 'models/user.rb'
 require_relative 'data_mapper_setup.rb'
 
 class BookmarkManager < Sinatra::Base
@@ -9,7 +10,12 @@ class BookmarkManager < Sinatra::Base
   # set :environment, :development
 
   get '/' do
-    'Hello BookmarkManager!'
+    erb (:sign_up)
+  end
+
+  post '/signed_in' do
+    @user = User.create(:name => params[:name], :email => params[:email], :password => params[:password] )
+    redirect '/links'
   end
 
   get '/links' do

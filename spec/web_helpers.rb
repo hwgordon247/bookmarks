@@ -29,7 +29,9 @@ def sign_up_two
     within 'div#notice' do
       fill_in 'password', with: 'password123'
       fill_in 'password_confirmation', with: 'password123'
+      within 'label.submitform' do
       click_button('Try Again')
+    end
     end
   end
 end

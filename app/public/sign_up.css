@@ -6,19 +6,48 @@ body {
   font-weight: normal;
 }
 
+label {
+  color: white;
+}
+
 .wrapper {
   margin: 100px auto;
 }
 
+div.title {
+  text-align: center;
+  position: relative;
+  max-width: 1500px;
+  font-size-adjust: auto;
+  background-image: url('bookmarkmanageress.png');
+  background-repeat: no-repeat;
+}
+
+div.title>h1 {
+  font-family: helvetica;
+  color: rgb(255, 77, 77);
+}
+
+
 div.notice >form {
-  max-width: 200px;
+  max-width: 50px;
   margin: 20px auto;
 }
 
+form> input.submitform {
+  background: url("") no-repeat scroll 0 0 transparent;
+  color: #000000;
+  cursor: pointer;
+  font-weight: bold;
+  height: 20px;
+  padding-bottom: 2px;
+  width: 75px;
+}
 
 input[type=text],
 input[type=email],
 input[type=number],
+input[type=password],
 textarea,
 fieldset {
 /* required to properly style form
@@ -26,18 +55,20 @@ fieldset {
   -webkit-appearance: none;
 
   width : 100%;
-  border: 1px solid #333;
+  border: 10px solid white;
   margin: 0;
 
   font-family: inherit;
-  font-size: 90%;
+  font-size: 100%;
 
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  background-color: rgb(255, 77, 77)
 }
 
 input:invalid {
-  box-shadow: 0 0 5px 1px red;
+  box-shadow: 0 0 10px 5px white;
+  background-color: rgb(255, 77, 77);
 }
 
 input:focus:invalid {

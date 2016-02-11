@@ -7,7 +7,9 @@
 
 <body>
   <div class="wrapper">
+    <div class="title">
   <h1> Sign Up to BookmarkManageress </h1>
+    </div>
   <% if flash[:notice].nil? %>
   <form action="/sign_up" method="post" >
     <label for="user_name">
@@ -26,7 +28,9 @@
       Confirm Password:
       <input type="password" name="password_confirmation">
     </label>
-    <input type="submit" value="Sign Up">
+    <label for="submit" class="submitform">
+      <input type="submit" value="Sign Up">
+    </label>
   </form>
   <% end %>
 
@@ -50,7 +54,9 @@
             Confirm Password:
             <input type="password" name="password_confirmation">
           </label>
+          <label for="submit" class="submitform">
           <input type="submit" value="Try Again">
+        </label>
         </form>
     </div>
   <% end %>

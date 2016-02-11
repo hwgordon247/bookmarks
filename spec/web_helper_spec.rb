@@ -33,3 +33,8 @@ def invalid_email_entered
   fill_in :password_confirmation, with: 'potato'
   click_button "Sign up"
 end
+
+def repeat_email
+  sign_up
+  sign_up
+end

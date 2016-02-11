@@ -12,4 +12,9 @@ feature 'User sign up' do
   scenario 'a user cannot sign up with an invalid email address' do
     expect { invalid_email_entered }.not_to change(User, :count)
   end
+
+  scenario 'user cannot sign up with an already registered email address' do
+    expect {repeat_email}.to change(User, :count).by(1)
+    expect(page).to have_content "Email is already taken"
+  end
 end

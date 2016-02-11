@@ -1,0 +1,8 @@
+
+
+feature 'can catch a mismatching password' do
+  scenario 'when the password is entered incorrectly in the confirmation' do
+    expect { fail_sign_up }.not_to change(User, :count)
+  end
+
+end

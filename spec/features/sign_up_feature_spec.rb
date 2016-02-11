@@ -37,6 +37,15 @@ feature 'Sign Up' do
     sign_up_good
     expect(User.first.email).to eq('viola.crellin@gmail.com')
   end
+  # 
+  # scenario 'Checking a new user\'s email fails validation' do
+  #   sign_up_bad_email
+  #   expect(page).to have_content('Ooops, your email looks a bit fishy')
+  # end
+
+  scenario 'Checking database does not add a new user if no email supplied' do
+    expect{sign_up_bad_email}.not_to change(User, :count)
+  end
 
 
 

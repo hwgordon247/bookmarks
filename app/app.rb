@@ -33,11 +33,7 @@ class BookmarkManager < Sinatra::Base
 
 
   get '/welcome' do
-    # if session_user.nil?
-    #   @user = nil
-    # else
-      @user = session_user.user_name
-    # end
+    @user = session_user.user_name
     erb :'users/welcome'
   end
 

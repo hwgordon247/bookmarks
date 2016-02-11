@@ -1,46 +1,56 @@
-<% if flash[:notice].nil? %>
-<form action="/sign_up" method="post" >
-  <label for="user_name">
-    User Name:
-    <input type="text" name="user_name">
-  </label>
-  <label for="email">
-    Email:
-    <input type="text" name="email">
-  </label>
-  <label for="password">
-    Password:
-    <input type="password" name="password">
-  </label>
-  <label for="password_confirmation">
-    Confirm Password:
-    <input type="password" name="password_confirmation">
-  </label>
-  <input type="submit" value="Sign Up">
-</form>
-<% end %>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Sign Up to Bookmark Manageress </title>
+    <link rel="stylesheet" href='sign_up.css' type='text/css'>
+  </head>
+  <body>
 
-<% if flash[:notice] %>
-<div id="notice" >
-  <%= flash[:notice] %>
-<form action="/sign_up" method="post">
-  <label for="user_name">
-    User Name:
-    <input type="text" name="user_name" value="<%= @user.user_name%>">
-  </label>
-  <label for="email">
-    Email:
-    <input type="text" name="email" value="<%= @user.email%>">
-  </label>
-  <label for="password">
-    Password:
-    <input type="password" name="password">
-  </label>
-  <label for="password_confirmation">
-    Confirm Password:
-    <input type="password" name="password_confirmation">
-  </label>
-  <input type="submit" value="Try Again">
-</form>
-</div>
-<% end %>
+  <% if flash[:notice].nil? %>
+  <form action="/sign_up" method="post" >
+    <label for="user_name">
+      User Name:
+      <input type="text" name="user_name" maxlength="45">
+    </label>
+    <label for="email">
+      Email:
+      <input type="email" name="email" required>
+    </label>
+    <label for="password">
+      Password:
+      <input type="password" name="password">
+    </label>
+    <label for="password_confirmation">
+      Confirm Password:
+      <input type="password" name="password_confirmation">
+    </label>
+    <input type="submit" value="Sign Up">
+  </form>
+  <% end %>
+
+  <% if flash[:notice] %>
+    <div id="notice" >
+      <%= flash[:notice] %>
+        <form action="/sign_up" method="post">
+          <label for="user_name">
+            User Name:
+            <input type="text" name="user_name" value="<%= @user.user_name%>">
+          </label>
+          <label for="email">
+            Email:
+            <input type="text" name="email" value="<%= @user.email%>">
+          </label>
+          <label for="password">
+            Password:
+            <input type="password" name="password">
+          </label>
+          <label for="password_confirmation">
+            Confirm Password:
+            <input type="password" name="password_confirmation">
+          </label>
+          <input type="submit" value="Try Again">
+        </form>
+    </div>
+  <% end %>
+  </body>
+</html>

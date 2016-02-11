@@ -19,7 +19,7 @@ div.title {
   position: relative;
   max-width: 1500px;
   font-size-adjust: auto;
-  background-image: url('bookmarkmanageress.png');
+  background-image: url('');
   background-repeat: no-repeat;
 }
 
@@ -35,7 +35,7 @@ div.notice >form {
 }
 
 form> input.submitform {
-  background: url("") no-repeat scroll 0 0 transparent;
+  background: url("http://i.imgur.com/Q4N2D0c.png") no-repeat scroll 0 0 transparent;
   color: #000000;
   cursor: pointer;
   font-weight: bold;

@@ -11,8 +11,7 @@ feature 'Filtering and viewing tags' do
     create_links('www.somewhere_old.com', 'Somewhere in the past', 'history')
     create_links('www.wordpress.com', 'Wordpress', 'blog')
     visit '/tags/bubbles'
-    # fill_in "name", with: 'bubbles'
-    # click_button("Search By Tag")
+
 
 
     expect(page.status_code).to eq 200

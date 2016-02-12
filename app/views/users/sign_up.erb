@@ -34,9 +34,10 @@
   </form>
   <% end %>
 
-  <% if flash[:notice] %>
+  <% if flash[:notice] || flash[:notice_email] %>
     <div id="notice" >
       <%= flash[:notice] %>
+      <%= flash[:notice_email] %>
         <form action="/sign_up" method="post">
           <label for="user_name">
             User Name:

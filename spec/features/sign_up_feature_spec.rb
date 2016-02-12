@@ -33,18 +33,27 @@ feature 'Sign Up' do
     expect(page).to have_content("WELCOME TO BOOKMARKER MANAGERESS KokoKitscha! Ready?")
   end
 
+# EMAIL validation
   scenario 'Checking a new user\'s email' do
     sign_up_good
     expect(User.first.email).to eq('viola.crellin@gmail.com')
   end
-  # 
-  # scenario 'Checking a new user\'s email fails validation' do
-  #   sign_up_bad_email
-  #   expect(page).to have_content('Ooops, your email looks a bit fishy')
-  # end
 
   scenario 'Checking database does not add a new user if no email supplied' do
     expect{sign_up_bad_email}.not_to change(User, :count)
+  end
+
+  scenario 'Checking no duplicate emails in database when signing up' do
+    sign_up_good
+    sign_up_good
+    expect(page).to have_content('Ooops, your email looks a bit fishy')
+    expect(page).not_to have_content('Ooops, your passwords didn\'t match')
+    expect(current_path).to eq('/sign_up')
+    expect(current_path).not_to eq('/welcome')
+  end
+
+  scenario 'Checking a duplicated email sign up doesn\'t add to database' do
+    expect{2.times{sign_up_good}}.to change(User, :count).by(1)
   end
 
 

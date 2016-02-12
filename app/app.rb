@@ -26,7 +26,12 @@ class BookmarkManager < Sinatra::Base
       session[:user_id] = @user.id
       redirect '/welcome'
     else
-      flash.now[:notice]= 'Ooops, your passwords didn\'t match'
+      if User.last(params[:email])
+        flash.now[:notice_email]= 'Ooops, your email looks a bit fishy'
+      else
+        flash.now[:notice]= 'Ooops, your passwords didn\'t match'
+      #@user.password == @user.password_confirmation
+      end
       erb :'users/sign_up'
     end
   end
@@ -57,7 +62,6 @@ class BookmarkManager < Sinatra::Base
   get '/tags/:name' do
     tag = Tag.all(name: params[:name])
     @links = tag ? tag.links : []
-    # require 'pry'; binding.pry
     erb :'links/search_tag'
    end
 

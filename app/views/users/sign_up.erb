@@ -13,8 +13,10 @@
     <div class="sign_in">
       <h3> Sign In </h3>
 
-      <% if flash[:notice_user_name] %>
+      <% if flash[:notice_user_name] || flash[:notice_user_password]%>
         <%= flash[:notice_user_name] %>
+        <%= flash[:notice_user_password] %>
+
       <% end %>
 
 

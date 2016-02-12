@@ -59,3 +59,12 @@ def sign_in_bad_username
   fill_in 'existing_password', with: 'password123'
   click_button('Sign In')
 end
+
+def sign_in_bad_password
+
+  sign_up_good
+  visit '/'
+  fill_in 'existing_user_name', with: 'KokoKitscha'
+  fill_in 'existing_password', with: 'wrong'
+  click_button('Sign In')
+end

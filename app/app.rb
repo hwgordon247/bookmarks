@@ -19,18 +19,23 @@ class BookmarkManager < Sinatra::Base
   get '/' do
     erb :'users/sign_up'
   end
+  # flash.now[:notice_user_name] = "Who are you?" unless @user_existing
 
   post '/sign_in' do
+    flash.now[:notice_user_name] = "Who are you?" unless User.first(params[:existing_user_name])
     @user_existing = User.authenticate(params[:existing_user_name], params[:existing_password])
-    if @user_existing
-      session[:user_id] = @user_existing.id
-      @user = @user_existing.user_name
-      redirect '/welcome'
-    else
-      flash.now[:notice_user_name] = "Who are you?"
-
-      erb :'users/sign_up'
-    end
+      if @user_existing
+        session[:user_id] = @user_existing.id
+        @user = @user_existing.user_name
+        redirect '/welcome'
+      else
+        flash.now[:notice_user_password] = "Computer says no"
+        erb :'users/sign_up'
+      end
+    # else
+    #   flash.now[:notice_user_name] = "Who are you?"
+    #   erb :'users/sign_up'
+    # end
   end
 
   post '/sign_up' do

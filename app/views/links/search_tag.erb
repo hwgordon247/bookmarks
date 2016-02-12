@@ -1,6 +1,16 @@
-<ul id="links">
-  <%@links.each do |link| %>
-    <li> Title: <%= link.title %></li>
-    <li> URL: <%= link.url %></li>
-  <% end %>
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> My Bookmarks </title>
+    <link rel="stylesheet" href="../new.css" type="text/css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <ul id="links">
+        <%@links.each do |link| %>
+          <li><a href='<%= link.url%>'><%= link.title %></li></a>
+        <% end %>
+      </ul>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+body {
+  height: 100%;
+  font-family:helvetica, sans-serif;
+  background-color: rgb(255, 77, 77);
+  font-size: 48px;
+  font-weight: normal;
+}
+
+
+label {
+  color: white;
+}
+
+.wrapper {
+  margin: 100px auto;
+}
+
+div.title {
+  text-align: center;
+  position: relative;
+  max-width: 1500px;
+  font-size-adjust: auto;
+  background-color: white;
+}
+
+div.title>h1 {
+  font-family: helvetica;
+  color: rgb(255, 77, 77);
+}

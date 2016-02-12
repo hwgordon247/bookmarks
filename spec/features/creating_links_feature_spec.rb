@@ -11,7 +11,7 @@ feature 'Adding links' do
     expect(current_path).to eq '/links'
 
     within 'ul#links' do
-      expect(page).to have_text('www.wordpress.com')
+      expect(page).to have_text('Wordpress')
     end
 
   end

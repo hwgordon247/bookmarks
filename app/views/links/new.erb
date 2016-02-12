@@ -1,17 +1,33 @@
-<h1> Add Link </h1>
 
-<form action="/links" method="post">
-  <label for="url">
-    <h1> URL </h1>
-    <input type="text" name="url"/>
-  </label>
-  <label for="title">
-    <h1> Title </h1>
-    <input type="text" name="title"/>
-  </label>
-  <label for="tags">
-    <h1> Tag </h1>
-    <input type="text" name="tags"/>
-  </label>
-  <input type="submit" value="Add"/>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title> Sign Up to Bookmark Manageress </title>
+    <link rel="stylesheet" href="../new.css" type="text/css">
+  </head>
+
+<body>
+  <div class="wrapper">
+    <div class="title">
+      <h1> Book Mark a Link </h1>
+    </div>
+    <form action="/links" method="post">
+      <label for="url">
+        <h1> URL </h1>
+        <input type="text" name="url"/>
+      </label>
+      <label for="title">
+        <h1> Title </h1>
+        <input type="text" name="title"/>
+      </label>
+      <label for="tags">
+        <h1> Tag </h1>
+        <input type="text" name="tags"/>
+      </label>
+      <label for="submit" class="submitform">
+        <input type="submit" value="Add"/>
+      </label>
+      </form>
+    </div>
+  </body>
+</html>

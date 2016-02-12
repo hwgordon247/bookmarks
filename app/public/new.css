@@ -20,8 +20,7 @@ div.title {
   position: relative;
   max-width: 1500px;
   font-size-adjust: auto;
-  background-image: url('http://i.imgur.com/Q4N2D0c.png');
-  background-repeat: no-repeat;
+  background-color: white;
 }
 
 div.title>h1 {
@@ -30,8 +29,8 @@ div.title>h1 {
 }
 
 
-div.notice >form {
-  max-width: 50px;
+div.wrapper >form {
+  max-width: 500px;
   margin: 20px auto;
 }
 
@@ -46,9 +45,6 @@ form> input.submitform {
 }
 
 input[type=text],
-input[type=email],
-input[type=number],
-input[type=password],
 textarea,
 fieldset {
 /* required to properly style form
@@ -65,13 +61,4 @@ fieldset {
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   background-color: rgb(255, 77, 77)
-}
-
-input:invalid {
-  box-shadow: 0 0 10px 5px white;
-  background-color: rgb(255, 77, 77);
-}
-
-input:focus:invalid {
-  outline: none;
 }

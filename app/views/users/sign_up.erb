@@ -17,6 +17,10 @@
         <%= flash[:notice_user_credentials] %>
       <% end %>
 
+      <% if flash.keep[:notice_goodbye] %>
+        <%= flash.keep[:notice_goodbye] %>
+      <% end%>
+
 
       <form action='/sign_in' method='post'>
         <label for="user_name">

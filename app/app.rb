@@ -8,6 +8,7 @@ class BookmarkManager < Sinatra::Base
   enable :sessions
   set :session_secret, 'super secret'
   register Sinatra::Flash
+  use Rack::MethodOverride
 
   helpers do
     def session_user
@@ -84,7 +85,15 @@ class BookmarkManager < Sinatra::Base
     tag = Tag.all(name: params[:name])
     @links = tag ? tag.links : []
     erb :'links/search_tag'
-   end
+  end
+
+  delete '/goodbye' do
+    session[:user_id] = nil
+    flash.keep[:notice_goodbye] = 'We are done... don\'t come crying back to me when you loose all your bookmarks'
+    redirect '/'
+  end
+
+
 
 
 

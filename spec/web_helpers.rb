@@ -44,11 +44,18 @@ def sign_up_bad_email
   click_button('Sign Up')
 end
 
-# def sign_up_doubled_email
-#   visit '/'
-#   fill_in 'user_name', with: 'KokoKitscha'
-#   fill_in u
-#   fill_in 'password', with: 'password123'
-#   fill_in 'password_confirmation', with: 'password123'
-#   click_button('Sign Up')
-# end
+def sign_in
+  sign_up_good
+  visit '/'
+  fill_in 'existing_user_name', with: 'KokoKitscha'
+  fill_in 'existing_password', with: 'password123'
+  click_button('Sign In')
+end
+
+def sign_in_bad_username
+  sign_up_good
+  visit '/'
+  fill_in 'existing_user_name', with: 'Potato'
+  fill_in 'existing_password', with: 'password123'
+  click_button('Sign In')
+end

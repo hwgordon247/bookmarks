@@ -20,6 +20,19 @@ class BookmarkManager < Sinatra::Base
     erb :'users/sign_up'
   end
 
+  post '/sign_in' do
+    @user_existing = User.authenticate(params[:existing_user_name], params[:existing_password])
+    if @user_existing
+      session[:user_id] = @user_existing.id
+      @user = @user_existing.user_name
+      redirect '/welcome'
+    else
+      flash.now[:notice_user_name] = "Who are you?"
+
+      erb :'users/sign_up'
+    end
+  end
+
   post '/sign_up' do
     @user = User.new(user_name: params[:user_name], password: params[:password], email: params[:email], password_confirmation: params[:password_confirmation])
     if @user.save

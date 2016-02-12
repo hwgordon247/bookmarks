@@ -8,8 +8,32 @@
 <body>
   <div class="wrapper">
     <div class="title">
-  <h1> Sign Up to BookmarkManageress </h1>
+      <h1> BookmarkManageress </h1>
     </div>
+    <div class="sign_in">
+      <h3> Sign In </h3>
+
+      <% if flash[:notice_user_name] %>
+        <%= flash[:notice_user_name] %>
+      <% end %>
+
+
+      <form action='/sign_in' method='post'>
+        <label for="user_name">
+          User Name:
+          <input type="text" name="existing_user_name" maxlength="45">
+        </label>
+        <label for="password">
+          Password:
+          <input type="password" name="existing_password">
+        </label>
+        <label for="submit" class="submitform">
+          <input type="submit" value="Sign In">
+        </label>
+
+      </form>
+    </div>
+
   <% if flash[:notice].nil? %>
   <form action="/sign_up" method="post" >
     <label for="user_name">
